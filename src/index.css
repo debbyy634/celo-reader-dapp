@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+
+
+
+
+body {
+  margin: 10px;
+  background-color: azure;
+  
+}
+
+.form-row{
+  width: 38rem;
+  margin-left: 20px;
+  margin-right: 200px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  background-color: azure;
+}
+
+.balance {
+  color: black;
+  font-family: "Rubik Moonrocks", sans-serif;
+  font-size: x-large;
+  list-style: none;
+  text-decoration: none;
+}
+
+.brand-name {
+  color: black;
+  font-family: "Rubik Moonrocks", sans-serif;
+  font-size: large;
+ 
+}
+
+.btn{
+  margin-left: 8px;
+}
+
+.tm{
+  color: white;
+}
+
+.card{
+  width: 37rem;
+  margin: 20px;
+}
+
