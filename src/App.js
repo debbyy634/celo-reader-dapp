@@ -174,7 +174,7 @@ function App() {
     <div className="App">
       <NavigationBar cUSDBalance={cUSDBalance} />
       <AddBook addBook={addBook} />
-      <Books bookks={bookks} addComment={addComment} Donate={Donate}/>
+      <Books userWa={address} bookks={bookks} addComment={addComment} donate={Donate}/>
      
     </div>
   );

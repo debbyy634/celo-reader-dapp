@@ -22,7 +22,9 @@ export const Books = (props) => {
       <h5 class="card-title">{book.author}</h5>
       <h6 class="card-subtitle">{book.title}</h6>
       <p class="card-text">{book.description}</p>
-      <button type="button" class="btn btn-danger" onClick={ ()=> props.donate(book.index)}>Donate</button>
+      {props.userWa !== book.owner && (
+        <button type="button" class="btn btn-danger" onClick={ ()=> props.donate(book.index)}>Donate</button>
+      )}
     
       <form>
   <div class="form-row">
