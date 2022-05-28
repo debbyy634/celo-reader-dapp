@@ -1,7 +1,5 @@
 # Live Demo
-
-https://zippy-heliotrope-038e82.netlify.app
-
+https://debbyy634.github.io/celo-reader-dapp/
 
 # Description
 
