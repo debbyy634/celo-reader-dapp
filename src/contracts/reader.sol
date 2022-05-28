@@ -19,6 +19,13 @@ contract Reader {
     uint internal booksLength = 0;
     address internal cUsdTokenAddress = 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
 
+     struct Comment {
+        uint256 postId;
+        address commenterAddress;
+        string commentMessage;
+    }
+
+
     struct Book {
         address payable owner;
         string author;
@@ -26,10 +33,11 @@ contract Reader {
         string cover;
         string description;
         uint numberOfcomment;
-        string[] comments;
+      
     }
 
     mapping (uint => Book) internal books;
+    mapping (uint => Comment[]) internal commentsMap;
 
     function addBook(
         string memory _author,
@@ -38,7 +46,6 @@ contract Reader {
         string memory _description
 
     ) public {
-        string[] memory _comments;
         uint _numberOfcomment = 0;
         
         books[booksLength] = Book(
@@ -47,8 +54,8 @@ contract Reader {
             _title,
             _cover,
             _description,
-            _numberOfcomment,
-            _comments
+            _numberOfcomment
+           
         );
         booksLength++;
     }
@@ -61,9 +68,10 @@ contract Reader {
         string memory, 
         string memory, 
         uint,
-        string[] memory
+        Comment[] memory
     ) {
         Book memory b = books[_index];
+        Comment[] memory comments = commentsMap[_index];
         return (
             b.owner,
             b.author, 
@@ -71,19 +79,19 @@ contract Reader {
             b.cover, 
             b.description, 
             b.numberOfcomment,
-            b.comments
+            comments
         );
     }
 
 function addComment(uint _index, string memory _comment) public{
-    books[_index].comments.push(_comment);
+    commentsMap[_index].push(Comment(_index, address(msg.sender), _comment));
     books[_index].numberOfcomment++;
 
   }
    
  
-  function getComments(uint _index) public view returns(string[] memory){
-    return(books[_index].comments);
+   function getComments(uint _index) public view returns(Comment[] memory){
+    return(commentsMap[_index]);
   }
     
     function donate(uint _index, uint _price) public payable  {
@@ -103,6 +111,6 @@ function addComment(uint _index, string memory _comment) public{
     }
 
     function getcommentsLength(uint _index) public view returns (uint) {
-        return (books[_index].comments.length);
+        return commentsMap[_index].length;
     }
 }

@@ -11,7 +11,7 @@ import { newKitFromWeb3 } from "@celo/contractkit";
 import BigNumber from "bignumber.js";
 
 
-import Memories from "./contracts/reader.abi.json";
+import reader from "./contracts/reader.abi.json";
 import IERC from "./contracts/IERC.abi.json";
 import { Books } from './components/books';
 
@@ -21,7 +21,7 @@ const donationPrice = "2";
 
 
 
-const contractAddress = "0xa52d04f582b3b70ca357AA0f23A04a36Ce00ec56";
+const contractAddress = "0x7084e7125e08b0BBAe2e1DD1ff4Fd421D3880BDF";
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1";
 
 
@@ -32,7 +32,7 @@ function App() {
   const [kit, setKit] = useState(null);
   const [cUSDBalance, setcUSDBalance] = useState(0);
   const [bookks, setBooks] = useState([]);
- 
+  const [coms, setComs] = useState([]);
 
 
   const connectToWallet = async () => {
@@ -62,7 +62,7 @@ function App() {
       const balance = await kit.getTotalBalance(address);
       const USDBalance = balance.cUSD.shiftedBy(-ERC20_DECIMALS).toFixed(2);
 
-      const contract = new kit.web3.eth.Contract(Memories, contractAddress);
+      const contract = new kit.web3.eth.Contract(reader, contractAddress);
       setcontract(contract);
       setcUSDBalance(USDBalance);
     } catch (error) {
@@ -147,13 +147,6 @@ function App() {
     }};
 
 
-  
-
-
-  
-
-    
-
   useEffect(() => {
     connectToWallet();
   }, []);
@@ -173,9 +166,8 @@ function App() {
   return (
     <div className="App">
       <NavigationBar cUSDBalance={cUSDBalance} />
+      <Books userWallet={address} bookks={bookks} addComment={addComment} donate={Donate} coms={coms}/>
       <AddBook addBook={addBook} />
-      <Books bookks={bookks} addComment={addComment} Donate={Donate}/>
-     
     </div>
   );
 }

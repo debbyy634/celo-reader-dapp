@@ -11,10 +11,20 @@ body {
   
 }
 
+.card-container{
+  display: grid;
+   grid-template-columns: repeat(3, 1fr);
+}
+
+
 .form-row{
   width: 38rem;
   margin-left: 20px;
   margin-right: 200px;
+}
+.form-r{ 
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .navbar {
