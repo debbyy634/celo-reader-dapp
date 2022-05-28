@@ -1,10 +1,11 @@
 # Live Demo
 
-https://focused-mcnulty-e9f28d.netlify.app/
+https://zippy-heliotrope-038e82.netlify.app
+
 
 # Description
 
-Memories is a daap where users can  post interesting and significant memories of their life and other users can read them and decide to either like or dislike the story and they can also tip the writer of the story if they enjoy reading the story and the tipping price must be above 1 cusd. The owner of the memory can also decide to remove the memory from the block-chain. Creating this daap has helped me gain more understanding about solidity and the celo block-chain.
+Celo-reader dapp is a dapp where writers can post their newly published book and anyone can leave a written review of the book or donate to the writer by paying 2 cUSD. I’ll be continuously working on the daap. Your feedbacks are welcome.
 
 # Getting Started with Create React App
 
