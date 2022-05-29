@@ -17,7 +17,8 @@ export const Books = (props) => {
       <h6 class="card-subtitle">Book Title: {book.title}</h6>
       <p class="card-text mt-2">{book.description}</p>
       {props.userWa !== book.owner && (
-        <button type="button" class="btn btn-primary mt-2" onClick={ ()=> props.donate(book.index)}>Donate</button>
+        <button type="button" class="btn btn-primary mt-2" onClick={ ()=> props.donate(book.index)}>Donate 2 cUSD</button>
+        
       )}
     
       <form>
