@@ -1,5 +1,5 @@
 # Live Demo
-https://debbyy634.github.io/celo-reader-dapp/
+https://tangerine-tapioca-b3cc08.netlify.app
 
 # Description
 
