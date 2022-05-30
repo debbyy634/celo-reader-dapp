@@ -32,7 +32,6 @@ function App() {
   const [kit, setKit] = useState(null);
   const [cUSDBalance, setcUSDBalance] = useState(0);
   const [bookks, setBooks] = useState([]);
-  const [coms, setComs] = useState([]);
 
 
   const connectToWallet = async () => {
@@ -166,7 +165,7 @@ function App() {
   return (
     <div className="App">
       <NavigationBar cUSDBalance={cUSDBalance} />
-      <Books userWallet={address} bookks={bookks} addComment={addComment} donate={Donate} coms={coms}/>
+      <Books userWallet={address} bookks={bookks} addComment={addComment} donate={Donate}/>
       <AddBook addBook={addBook} />
     </div>
   );

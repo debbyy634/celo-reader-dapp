@@ -19,13 +19,15 @@ contract Reader {
     uint internal booksLength = 0;
     address internal cUsdTokenAddress = 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
 
+
+// declaring the struct for the comment
      struct Comment {
         uint256 postId;
         address commenterAddress;
         string commentMessage;
     }
 
-
+// declaring the struct for the book
     struct Book {
         address payable owner;
         string author;
@@ -36,9 +38,11 @@ contract Reader {
       
     }
 
-    mapping (uint => Book) internal books;
-    mapping (uint => Comment[]) internal commentsMap;
+    mapping (uint => Book) internal books; //mapping books
+    mapping (uint => Comment[]) internal commentsMap;// mapping comments
 
+   
+   // adding a new book to the mapping
     function addBook(
         string memory _author,
         string memory _title,
@@ -60,7 +64,7 @@ contract Reader {
         booksLength++;
     }
 
-
+// getting book from the mapping
     function getBook(uint _index) public view returns (
         address payable,
         string memory, 
@@ -83,18 +87,19 @@ contract Reader {
         );
     }
 
-function addComment(uint _index, string memory _comment) public{
+
+      // function to add a comment to a book
+   function addComment(uint _index, string memory _comment) public{
     commentsMap[_index].push(Comment(_index, address(msg.sender), _comment));
     books[_index].numberOfcomment++;
-
   }
    
- 
+     // function to get comments
    function getComments(uint _index) public view returns(Comment[] memory){
     return(commentsMap[_index]);
   }
-    
-    function donate(uint _index, uint _price) public payable  {
+    // function to donate to the owner of a book 
+   function donate(uint _index, uint _price) public payable  {
         require(
           IERC20Token(cUsdTokenAddress).transferFrom(
             msg.sender,
@@ -105,11 +110,11 @@ function addComment(uint _index, string memory _comment) public{
         );
 
     }
-    
+    // getting the length of books
     function getBooksLength() public view returns (uint) {
         return (booksLength);
     }
-
+// getting the length of comments 
     function getcommentsLength(uint _index) public view returns (uint) {
         return commentsMap[_index].length;
     }
